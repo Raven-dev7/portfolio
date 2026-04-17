@@ -115,7 +115,7 @@ export const projects = [
     id: 2,
     title: 'Collision',
     icon: '/portfolio/media/collision/collisionIcon.png',
-    short: 'A Physics-based 2D Split Screen Game built with Godot Engine.',
+    short: 'A Physics-based 2D Split Screen Multiplayer Game built with Godot Engine.',
     description: `Collision is a physics-based 2D split-screen multiplayer game developed using Godot Engine and GDScript. The game leverages Rapier physics engine for performant collision detection and response, creating engaging gameplay mechanics.
 
 The project demonstrates game development techniques including split-screen input handling, mutlplayer netcode, physics simulation, player input handling, and game state management. The architecture is designed for extensibility, allowing easy addition of new game modes and features.
@@ -179,7 +179,7 @@ The project demonstrates game development techniques including split-screen inpu
    {
     id: 4,
     title: 'ONOCLICK',
-    icon: '/portfolio/media/dictioanry/dictionaryIcon.png',
+    icon: '/portfolio/media/onoclick/onoclickIcon.png',
     short: 'Cool autoclicker with unique utilites.',
     tech: ['C#'],
 
