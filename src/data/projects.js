@@ -32,7 +32,7 @@ export const projects = [
   {
     id: 1,
     title: 'RemoteLink',
-    icon: '/portfolio/media/remotelink/remoteLinkIcon.png',
+    icon: '/media/remotelink/remoteLinkIcon.png',
     short: 'A secure remote support and device management platform for authorized assistance, monitoring, and collaboration across systems.',
     description: `Built with Go-Lang for high-performance backend services and Godot Engine due to its advanced UI system allowing cross-platform client builds, RemoteLink implements Protobuf for efficient binary serialization. The system leverages FFmpeg for video encoding/decoding, enabling smooth remote desktop streaming with minimal latency. Key architectural decisions include implementing encrypted data channels for all communication using tls, secure file transfer, and real-time monitoring capabilities that allow authorized users to view system metrics and control remote devices safely.`,
     tech: ['Go-Lang', 'Godot Engine', 'Protobuf', 'FFmpeg', 'GDScript', 'TLS/TCP'],
@@ -58,17 +58,17 @@ export const projects = [
       {
         title: 'File Operations',
         items: ['Encrypted file transfer', 'Custom remote file manager', 'Directory navigation & file ops'],
-        media: { type: 'image', src: '/portfolio/media/remotelink/file-manager.png' }
+        media: { type: 'image', src: '/media/remotelink/file-manager.png' }
       },
       {
         title: 'Clients Management',
         items: ['Centralized client management', 'Concurrent session handling', 'Efficient Go-based concurrency'],
-        media: { type: 'image', src: '/portfolio/media/remotelink/clients.png' }
+        media: { type: 'image', src: '/media/remotelink/clients.png' }
       },
       {
         title: 'Monitoring',
         items: ['Live CPU, RAM, battery telemetry', 'Autoruns', 'Log collection & viewing'],
-        media: { type: 'image', src: '/portfolio/media/remotelink/metrics.png' }
+        media: { type: 'image', src: '/media/remotelink/metrics.png' }
       }
     ],
     architecture: {
@@ -79,12 +79,12 @@ export const projects = [
       ]
     },
     media: [
-      { type: 'video', src: '/portfolio/media/remotelink/clip.mp4' },
-      { type: 'video', src: '/portfolio/media/remotelink/warning.mp4' }
+      { type: 'video', src: '/media/remotelink/clip.mp4' },
+      { type: 'video', src: '/media/remotelink/warning.mp4' }
     ],
     gallery: [
-      { type: 'video', src: '/portfolio/media/remotelink/clip.mp4' },
-      { type: 'video', src: '/portfolio/media/remotelink/warning.mp4' }
+      { type: 'video', src: '/media/remotelink/clip.mp4' },
+      { type: 'video', src: '/media/remotelink/warning.mp4' }
     ],
     // github: 'https://github.com/Raven-dev7/remotelink',
     accessType: 'request',
@@ -114,7 +114,7 @@ export const projects = [
   {
     id: 2,
     title: 'Collision',
-    icon: '/portfolio/media/collision/collisionIcon.png',
+    icon: '/media/collision/collisionIcon.png',
     short: 'A Physics-based 2D Split Screen Multiplayer Game built with Godot Engine.',
     description: `Collision is a physics-based 2D split-screen multiplayer game developed using Godot Engine and GDScript. The game leverages Rapier physics engine for performant collision detection and response, creating engaging gameplay mechanics.
 
@@ -136,14 +136,14 @@ The project demonstrates game development techniques including split-screen inpu
       'Optimized performance for consistent 60 FPS gameplay'
     ],
     media: [
-      { type: 'video', src: '/portfolio/media/collision/clip2.mp4' },
-      { type: 'video', src: '/portfolio/media/collision/about1280.mp4' },
-      { type: 'video', src: '/portfolio/media/collision/clip.mp4' }
+      { type: 'video', src: '/media/collision/clip2.mp4' },
+      { type: 'video', src: '/media/collision/about1280.mp4' },
+      { type: 'video', src: '/media/collision/clip.mp4' }
     ],
     gallery: [
-      { type: 'video', src: '/portfolio/media/collision/clip2.mp4' },
-      { type: 'video', src: '/portfolio/media/collision/about1280.mp4' },
-      { type: 'video', src: '/portfolio/media/collision/clip.mp4' }
+      { type: 'video', src: '/media/collision/clip2.mp4' },
+      { type: 'video', src: '/media/collision/about1280.mp4' },
+      { type: 'video', src: '/media/collision/clip.mp4' }
     ],
     // github: 'https://github.com/Raven-dev7/collision',
     downloads: [
@@ -155,7 +155,7 @@ The project demonstrates game development techniques including split-screen inpu
   {
     id: 3,
     title: 'Dictionary',
-    icon: '/portfolio/media/dictioanry/dictionaryIcon.png',
+    icon: '/media/dictioanry/dictionaryIcon.png',
     short: 'Simple, fast and offline dictionary app with 40,000+ words, (Made some years ago)',
     tech: ['SQLite', 'Godot'],
 
@@ -165,8 +165,8 @@ The project demonstrates game development techniques including split-screen inpu
     featured: false,
     hasGallery: true,
     gallery: [
-      { type: 'image', src: '/portfolio/media/dictioanry/ss1.png' },
-      { type: 'image', src: '/portfolio/media/dictioanry/ss2.png' },
+      { type: 'image', src: '/media/dictioanry/ss1.png' },
+      { type: 'image', src: '/media/dictioanry/ss2.png' },
     ],
     highlights: [
       '40,000+ words with pronunciation and synonyms',
@@ -179,7 +179,7 @@ The project demonstrates game development techniques including split-screen inpu
    {
     id: 4,
     title: 'ONOCLICK',
-    icon: '/portfolio/media/onoclick/onoclickIcon.png',
+    icon: '/media/onoclick/onoclickIcon.png',
     short: 'Cool autoclicker with unique utilites.',
     tech: ['C#'],
 
@@ -189,9 +189,9 @@ The project demonstrates game development techniques including split-screen inpu
     featured: false,
     hasGallery: true,
     gallery: [
-      { type: 'image', src: '/portfolio/media/onoclick/ss1.png' },
-      { type: 'image', src: '/portfolio/media/onoclick/ss2.png' },
-      { type: 'video', src: '/portfolio/media/onoclick/clip1.mp4' },
+      { type: 'image', src: '/media/onoclick/ss1.png' },
+      { type: 'image', src: '/media/onoclick/ss2.png' },
+      { type: 'video', src: '/media/onoclick/clip1.mp4' },
     ],
     highlights: [
       '40,000+ words with pronunciation and synonyms',
