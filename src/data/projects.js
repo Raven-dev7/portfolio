@@ -198,7 +198,7 @@ The project demonstrates game development techniques including split-screen inpu
       'Search history and bookmarks'
     ],
     downloads: [
-      { platform: 'Windows', url: '' }
+      // { platform: 'Windows', url: '' }
     ],
   }
 ]
