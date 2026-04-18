@@ -32,9 +32,9 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Featured Projects -->
-      <div v-if="featuredProjects.length" class="featured-projects">
+      <div v-if="featuredProjects.length" class="featured-projects" id="featured">
         <h2 class="featured-title">Featured Projects</h2>
         <div class="featured-grid" :class="{ 'grid-single': featuredProjects.length === 1 }">
           <router-link 
@@ -171,8 +171,12 @@ function getLatestUpdateText(project) {
 }
 
 function scrollDown() {
-  const next = document.getElementById('projects')
-  next?.scrollIntoView({ behavior: 'smooth' })
+  const nextSection = document.getElementById('projects')
+  if (nextSection) {
+    const offset = 80 // Header height
+    const top = nextSection.getBoundingClientRect().top + window.pageYOffset - offset
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
 }
 
 onMounted(() => {
@@ -192,7 +196,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 0 100px 0; /* Increased top padding to clear navbar */
+  padding: 120px 0 100px 0;
   background: transparent;
   position: relative;
   overflow: hidden;
@@ -215,18 +219,18 @@ onUnmounted(() => {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  animation: fadeInUp 0.8s ease-out;
+  animation: heroEntrance 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   will-change: transform, opacity;
 }
 
-@keyframes fadeInUp {
+@keyframes heroEntrance {
   from {
     opacity: 0;
-    transform: translate3d(0, 24px, 0);
+    transform: translateY(30px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -443,15 +447,16 @@ onUnmounted(() => {
 .featured-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-md);
+  border-radius: 16px;
+  padding: 1.5rem;
   text-decoration: none;
-  transition: all var(--transition-base);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  will-change: transform, border-color, box-shadow;
 }
 
 .featured-card-gradient {
@@ -471,9 +476,10 @@ onUnmounted(() => {
 }
 
 .featured-card:hover {
-  border-color: var(--border-color-hover);
+  border-color: var(--accent-primary);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md), var(--shadow-glow);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(59, 130, 246, 0.1);
+  background: var(--card-hover);
 }
 
 /* First card gets a persistent gradient line */
@@ -497,13 +503,20 @@ onUnmounted(() => {
 }
 
 .featured-icon {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 12px;
   background: var(--bg-primary);
-  padding: 4px;
+  padding: 6px;
   border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.featured-card:hover .featured-icon {
+  transform: scale(1.1) rotate(-5deg);
+  border-color: var(--accent-primary);
 }
 
 .featured-card h3 {
@@ -523,6 +536,10 @@ onUnmounted(() => {
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .featured-tech {
@@ -572,7 +589,7 @@ onUnmounted(() => {
    ======================================== */
 .scroll-indicator {
   position: absolute;
-  bottom: 28px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;

@@ -341,14 +341,19 @@ function getTechIcon(tech) {
 }
 
 .details-icon {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   background: var(--bg-tertiary);
-  border-radius: 12px;
-  padding: 6px;
+  border-radius: 14px;
+  padding: 8px;
   border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  transition: transform var(--transition-base);
+}
+
+.details-icon:hover {
+  transform: scale(1.05) rotate(2deg);
 }
 
 .project-title {

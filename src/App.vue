@@ -13,7 +13,11 @@
     <div class="bg-glow bg-glow-2"></div>
     <Navbar />
     <main>
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
     <GalleryModal 
       :isOpen="isGalleryOpen" 
@@ -103,8 +107,8 @@ main {
 }
 
 @keyframes bgScroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50px); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, 50px, 0); }
 }
 
 /* Floating Particles */
@@ -132,13 +136,13 @@ main {
 
 @keyframes floatUp {
   0% {
-    transform: translateY(100vh) scale(0);
+    transform: translate3d(0, 100vh, 0) scale(0);
     opacity: 0;
   }
   10% { opacity: 0.6; }
   90% { opacity: 0.6; }
   100% {
-    transform: translateY(-100px) scale(1.5);
+    transform: translate3d(0, -100px, 0) scale(1.5);
     opacity: 0;
   }
 }
@@ -186,8 +190,28 @@ main {
   }
 }
 
+/* Page Transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
 /* Reduce background intensity on mobile */
 @media (max-width: 768px) {
+  .bg-particles .particle:nth-child(n+15) {
+    display: none;
+  }
   .bg-particles {
     opacity: 0.3;
   }

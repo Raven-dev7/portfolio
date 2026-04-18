@@ -19,7 +19,9 @@
       class="project-card-link"
     >
       <div class="project-header-top">
-        <img v-if="project.icon" :src="project.icon" alt="" class="project-icon" loading="lazy" />
+        <div v-if="project.icon" class="project-icon-container">
+          <img :src="project.icon" alt="" class="project-icon" loading="lazy" />
+        </div>
         <h3 class="project-title">{{ project.title }}</h3>
       </div>
       <p class="project-description">{{ project.short || project.description }}</p>
@@ -177,13 +179,14 @@ function scrollToContact(e) {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: var(--spacing-md);
+  padding: 1.25rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-base);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
+  will-change: transform, box-shadow;
 }
 
 /* Gradient top line (visible on hover) */
@@ -205,9 +208,9 @@ function scrollToContact(e) {
 
 .project-card:hover {
   background-color: var(--card-hover);
-  border-color: var(--border-color-hover);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md), var(--shadow-glow);
+  border-color: var(--accent-primary);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.1);
 }
 
 /* Highlight variant — always shows gradient line, stronger glow */
@@ -251,15 +254,30 @@ function scrollToContact(e) {
   margin-bottom: 0.5rem;
 }
 
+.project-icon-container {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  z-index: 1;
+}
+
 .project-icon {
-  width: 32px;
-  height: 32px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 12px;
   background: var(--bg-primary);
-  padding: 4px;
+  padding: 6px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover .project-icon {
+  transform: scale(1.15) rotate(-5deg);
+  border-color: var(--accent-primary);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
 }
 
 .project-title {

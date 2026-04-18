@@ -176,12 +176,12 @@ The project demonstrates game development techniques including split-screen inpu
       { platform: 'Android', url: '' }
     ],
   },
-   {
+  {
     id: 4,
     title: 'ONOCLICK',
     icon: '/media/onoclick/onoclickIcon.png',
-    short: 'Cool autoclicker with unique utilites.',
-    tech: ['C#'],
+    short: 'Cool autoclicker with unique utilities. Not intended for cheating or unfair gameplay.',
+    tech: ['C#', "Godot"],
 
     // Classification
     type: 'mini',

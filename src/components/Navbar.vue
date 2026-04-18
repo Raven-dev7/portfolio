@@ -110,13 +110,13 @@ onUnmounted(() => {
   -webkit-backdrop-filter: blur(12px);
   background: rgba(10, 10, 10, 0.6);
   border-bottom: 1px solid transparent;
-  transition: all var(--transition-base);
+  transition: all var(--transition-satisfying);
 }
 
 .nav.scrolled {
-  background: rgba(10, 10, 10, 0.85);
+  background: rgba(10, 10, 10, 0.9);
   border-bottom-color: var(--border-color);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .nav-inner {
@@ -310,12 +310,12 @@ onUnmounted(() => {
 /* Slide transition */
 .slide-enter-active,
 .slide-leave-active {
-  transition: opacity var(--transition-base);
+  transition: opacity var(--transition-satisfying);
 }
 
 .slide-enter-active .mobile-menu,
 .slide-leave-active .mobile-menu {
-  transition: transform var(--transition-slow);
+  transition: transform var(--transition-satisfying);
 }
 
 .slide-enter-from {

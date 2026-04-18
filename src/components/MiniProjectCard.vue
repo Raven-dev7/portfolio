@@ -6,14 +6,15 @@
         <h3 class="mini-title">{{ project.title }}</h3>
       </div>
       <div class="mini-meta">
-        <span v-if="project.status === 'completed'" class="badge badge-completed">Done</span>
-        <div class="mini-tech">
-          <span v-for="tech in project.tech.slice(0, 2)" :key="tech">{{ tech }}</span>
-        </div>
+        <span v-if="project.status === 'completed'" class="mini-badge">Done</span>
       </div>
     </div>
     
     <p class="mini-description">{{ project.short }}</p>
+    
+    <div v-if="project.tech" class="mini-tech">
+      <span v-for="tech in project.tech.slice(0, 3)" :key="tech">{{ tech }}</span>
+    </div>
     
     <div class="mini-actions">
       <button 
@@ -77,13 +78,14 @@ function getFileName(url) {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: var(--spacing-md);
-  transition: all var(--transition-base);
+  padding: 0.85rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
   position: relative;
   overflow: hidden;
+  will-change: transform, box-shadow;
 }
 
 .mini-gradient-line {
@@ -103,9 +105,10 @@ function getFileName(url) {
 }
 
 .mini-card:hover {
-  border-color: var(--border-color-hover);
+  border-color: var(--accent-primary);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm), 0 0 20px rgba(59, 130, 246, 0.08);
+  background: var(--card-hover);
+  box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
 }
 
 .mini-card-header {
@@ -122,13 +125,21 @@ function getFileName(url) {
 }
 
 .mini-icon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 8px;
   background: var(--bg-primary);
-  padding: 3px;
+  padding: 4px;
   border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mini-card:hover .mini-icon {
+  transform: scale(1.15) rotate(5deg);
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
 .mini-meta {
@@ -139,34 +150,51 @@ function getFileName(url) {
 }
 
 .mini-title {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-accent);
   margin: 0;
   letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.mini-badge {
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .mini-tech {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
-  flex-shrink: 0;
 }
 
 .mini-tech span {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--accent-primary);
-  background: rgba(59, 130, 246, 0.08);
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
+  background: rgba(59, 130, 246, 0.05);
+  padding: 1px 6px;
+  border-radius: 4px;
   font-family: var(--font-mono);
   font-weight: 500;
+  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .mini-description {
   color: var(--text-secondary);
-  font-size: 0.88rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.4;
   margin: 0;
   flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .mini-actions {
@@ -179,19 +207,21 @@ function getFileName(url) {
 }
 
 .mini-link {
-  font-size: 0.82rem;
-  color: var(--accent-primary);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
   text-decoration: none;
-  padding: 3px 10px;
+  padding: 4px 10px;
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-base);
+  border-radius: 6px;
+  transition: all 0.2s ease;
   font-weight: 500;
 }
 
 .mini-link:hover {
   border-color: var(--accent-primary);
-  background: rgba(59, 130, 246, 0.08);
+  color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.05);
+  transform: translateY(-1px);
 }
 
 .btn-gallery {
@@ -200,11 +230,14 @@ function getFileName(url) {
   background: transparent;
   cursor: pointer;
   font-family: inherit;
+  color: var(--accent-primary);
+  border-color: rgba(59, 130, 246, 0.2);
 }
 
 .btn-gallery:hover {
-  background: rgba(59, 130, 246, 0.15);
+  background: rgba(59, 130, 246, 0.1);
   color: var(--accent-primary);
+  border-color: var(--accent-primary);
 }
 
 .mini-link.download {
